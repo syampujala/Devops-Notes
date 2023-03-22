@@ -35,6 +35,15 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
+      - name: set env variable
+        run: |
+          echo "PROJECT_TO_TEST=$(sh scripts/test.sh)" >> $GITHUB_ENV
+
+      - name: Conditionally Run
+        if: contains(env.PROJECT_TO_TEST, 'SomeString')
+        run: |
+          echo "let's run"
+          
       - name: install-cmake
         # You may pin to the exact commit or the version.
         # uses: Symbitic/install-cmake@301e932c0011b8d12d8bf33d4975fd1e17972709
