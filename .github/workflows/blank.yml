@@ -22,7 +22,7 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/cmakefiles@master
+      - uses: actions/checkout@v2
           
       - name: install-cmake
         uses: Symbitic/install-cmake@v0.1.0
